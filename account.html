@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | Gift Wallay</title>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://script.google.com;">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #09090b !important;
+            color: #ffffff;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .account-page-wrapper {
+            margin: 3.5rem auto 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 240px);
+            padding: 0 1.25rem;
+            background: radial-gradient(circle at 50% 25%, rgba(212, 175, 55, 0.09) 0%, rgba(9, 9, 11, 0) 70%);
+        }
+        
+        .auth-container {
+            width: 100%;
+            max-width: 500px;
+            background: linear-gradient(180deg, rgba(22, 22, 26, 0.95) 0%, rgba(13, 13, 16, 0.98) 100%) !important;
+            padding: 3.2rem 2.8rem;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.28) !important;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.75), 0 0 50px rgba(212, 175, 55, 0.07) !important;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transition: max-width 0.4s ease, padding 0.4s ease;
+        }
+
+        .auth-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2.5px;
+            background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.2) 20%, #d4af37 50%, rgba(212, 175, 55, 0.2) 80%, transparent 100%);
+        }
+
+        @media (max-width: 768px) {
+            .account-page-wrapper {
+                margin: 1.5rem auto 3rem;
+                padding: 0 12px;
+            }
+            .auth-container {
+                padding: 2.2rem 1.4rem !important;
+                border-radius: 14px;
+            }
+            .account-dashboard-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+            .tab-btn {
+                padding: 9px 8px !important;
+                font-size: 0.75rem !important;
+                letter-spacing: 0.5px !important;
+            }
+        }
+
+        .tab-nav { 
+            display: flex; 
+            background: rgba(0, 0, 0, 0.55);
+            border-radius: 10px;
+            padding: 5px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            margin-bottom: 2.2rem; 
+            gap: 4px;
+        }
+        
+        .tab-btn { 
+            flex: 1; 
+            padding: 10px 14px; 
+            text-align: center; 
+            cursor: pointer; 
+            font-family: 'Cinzel', serif; 
+            font-size: 0.8rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: #888888; 
+            border-radius: 7px;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            font-weight: 700;
+            border: 1px solid transparent !important;
+            user-select: none;
+        }
+        .tab-btn:hover {
+            color: #ffffff;
+        }
+        .tab-btn.active { 
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(212, 175, 55, 0.06) 100%) !important;
+            color: var(--gold) !important; 
+            border: 1px solid rgba(212, 175, 55, 0.45) !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .input-group { 
+            margin-bottom: 1.4rem; 
+            position: relative; 
+        }
+        
+        .input-group label { 
+            display: block; 
+            font-family: 'Cinzel', serif;
+            font-size: 0.72rem; 
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px; 
+            color: var(--gold); 
+        }
+        
+        .input-field { 
+            width: 100%; 
+            padding: 14px 16px; 
+            border: 1px solid rgba(255, 255, 255, 0.12); 
+            background: rgba(16, 16, 20, 0.9);
+            border-radius: 8px;
+            font-family: 'Lato', sans-serif; 
+            font-size: 0.95rem;
+            color: #ffffff;
+            transition: all 0.25s ease; 
+            box-sizing: border-box;
+        }
+        .input-field:focus { 
+            border-color: var(--gold); 
+            background: rgba(22, 22, 28, 0.95);
+            outline: none; 
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18), 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        .input-field::placeholder {
+            color: #666666;
+        }
+
+        .phone-input-container {
+            display: flex;
+            align-items: center;
+            background: rgba(16, 16, 20, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+        .phone-input-container:focus-within {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18), 0 4px 20px rgba(0, 0, 0, 0.4);
+            background: rgba(22, 22, 28, 0.95);
+        }
+        .phone-prefix {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0 14px;
+            background: rgba(28, 28, 34, 0.9);
+            color: var(--gold);
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            user-select: none;
+            height: 50px;
+        }
+
+        /* Gold Luxury Submit Buttons */
+        .btn-luxury-gold {
+            width: 100%;
+            padding: 15px 24px;
+            background: linear-gradient(135deg, #d4af37 0%, #b38618 100%);
+            color: #000000;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-luxury-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.45);
+            background: linear-gradient(135deg, #f0ca55 0%, #c49622 100%);
+        }
+        .btn-luxury-gold:active {
+            transform: translateY(0);
+        }
+
+        /* Status colors */
+        .status-badge {
+            padding: 4px 10px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--white);
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* Logout styling */
+        .logout-btn {
+            display: block;
+            width: 100%;
+            padding: 13px;
+            background: rgba(255, 255, 255, 0.04);
+            color: #e57373;
+            border: 1px solid rgba(229, 115, 115, 0.25);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
+            margin-top: 1.5rem;
+            border-radius: 8px;
+        }
+        .logout-btn:hover {
+            background: rgba(229, 115, 115, 0.12);
+            border-color: #ef5350;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+        <a href="index.html" class="brand" id="brandLogo" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+            <img src="Gift-Wallay.png" alt="Gift Wallay" style="height: 48px; max-height: 48px; width: auto; object-fit: contain; display: block;" onerror="this.style.display='none';">
+            <span style="font-family: var(--font-head); font-size: 1.35rem; font-weight: 700; color: var(--gold); letter-spacing: 2px;">GIFT WALLAY</span>
+        </a>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="cart.html" class="cart-icon">🛒<span class="cart-count">0</span></a>
+        </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="sidebar-menu" id="sidebarMenu">
+        <div style="text-align: right; font-size: 1.5rem; cursor: pointer;" onclick="toggleSidebar()">×</div>
+        <div style="margin-top: 2rem;">
+            <a href="index.html" class="sidebar-link">Home</a>
+            <a href="shop.html" class="sidebar-link">Shop All</a>
+            <a href="account.html" class="sidebar-link" style="color: var(--gold);">My Account</a>
+            <a href="terms.html" class="sidebar-link">Terms & Conditions</a>
+            <a href="privacy.html" class="sidebar-link">Privacy Policy</a>
+        </div>
+    </div>
+
+    <div class="container account-page-wrapper">
+        
+        <!-- AUTH CARD -->
+        <div class="auth-container">
+            <!-- Dynamic authentication forms and user dashboard will be injected and controlled by main.js -->
+            <div id="auth-logged-out-view">
+                <h2 style="text-align: center; margin-bottom: 0.5rem; font-family: var(--font-head); letter-spacing: 1px;">Welcome Back</h2>
+                <p style="text-align: center; color: #666; margin-bottom: 2rem; font-size: 0.9rem;">Sign in to access your premium shopping profile.</p>
+
+                <div class="tab-nav">
+                    <div class="tab-btn active">Login</div>
+                    <div class="tab-btn">Register</div>
+                </div>
+            </div>
+
+            <!-- Dynamic Dashboard / Logout View Container -->
+            <div id="auth-logged-in-view" style="display: none; text-align: center;">
+                <h2 style="font-family: var(--font-head); margin-bottom: 0.5rem;" id="welcome-user-title">Hello, User</h2>
+                <p style="color: #666; margin-bottom: 2rem; font-size: 0.9rem;">Manage your premium gift orders and profile details.</p>
+                
+                <button class="logout-btn" onclick="handleLogout()">Logout</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer style="background: #111; color: #fff; padding: 3.5rem 1.5rem; text-align: center; font-size: 0.9rem; margin-top: 4rem; border-top: 2px solid var(--gold);">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 1.5rem;">
+                <img src="Gift-Wallay.png" alt="Gift Wallay" style="height: 44px; max-height: 44px; width: auto; object-fit: contain; display: block;" onerror="this.style.display='none';">
+                <span style="font-family: var(--font-head); font-size: 1.45rem; font-weight: 700; color: var(--gold); letter-spacing: 2px;">GIFT WALLAY</span>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                <a href="index.html" style="color: #ccc;">Home</a>
+                <a href="shop.html" style="color: #ccc;">Shop Collection</a>
+                <a href="account.html" style="color: var(--gold);">My Account</a>
+                <a href="terms.html" style="color: #ccc;">Terms & Conditions</a>
+                <a href="privacy.html" style="color: #ccc;">Privacy Policy</a>
+            </div>
+            <p style="color: #777; margin-top: 10px;">&copy; 2026 Gift Wallay. All rights reserved. Premium Wall Art & Luxury Gifts.<br><a href="https://gift-wallay.github.io/website/" style="color: var(--gold); text-decoration: none; font-size: 0.8rem;">gift-wallay.github.io/website</a></p>
+        </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection | Gift Wallay</title>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://script.google.com;">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadCategory()">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+        <a href="index.html" class="brand" id="brandLogo" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+            <img src="Gift-Wallay.png" alt="Gift Wallay" style="height: 48px; max-height: 48px; width: auto; object-fit: contain; display: block;" onerror="this.style.display='none';">
+            <span style="font-family: var(--font-head); font-size: 1.35rem; font-weight: 700; color: var(--gold); letter-spacing: 2px;">GIFT WALLAY</span>
+        </a>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <button class="search-trigger-btn" id="navSearchBtn" onclick="openSearchModal()" title="Search Products" style="background: none; border: none; font-size: 1.25rem; cursor: pointer; color: #111; display: flex; align-items: center; justify-content: center; padding: 4px;">🔍</button>
+            <a href="cart.html" class="cart-icon">🛒<span class="cart-count">0</span></a>
+        </div>
+    </nav>
+
+    <!-- SIDEBAR MENU -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="sidebar-menu" id="sidebarMenu">
+        <div style="text-align: right; font-size: 1.5rem; cursor: pointer;" onclick="toggleSidebar()">×</div>
+        <div style="margin-top: 2rem;">
+            <a href="index.html" class="sidebar-link">Home</a>
+            <a href="shop.html" class="sidebar-link">Shop All</a>
+            <a href="account.html" class="sidebar-link">My Account</a>
+            <a href="favorites.html" class="sidebar-link">My Favorites</a>
+            <a href="terms.html" class="sidebar-link">Terms & Conditions</a>
+            <a href="privacy.html" class="sidebar-link">Privacy Policy</a>
+            <hr style="margin: 1rem 0; border: 0; border-top: 1px solid #eee;">
+            <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); font-weight: 700; margin-bottom: 0.8rem;">Collections</div>
+            <a href="category.html?type=Name%20%26%20Personalized" class="sidebar-link" style="font-size: 0.9rem;">Name & Personalized</a>
+            <a href="category.html?type=Wall%20Art" class="sidebar-link" style="font-size: 0.9rem;">Wall Art</a>
+            <a href="category.html?type=Home%20Decor" class="sidebar-link" style="font-size: 0.9rem;">Home Decor</a>
+            <a href="category.html?type=Keychains" class="sidebar-link" style="font-size: 0.9rem;">Keychains</a>
+            <a href="category.html?type=Gift%20Items" class="sidebar-link" style="font-size: 0.9rem;">Gift Items</a>
+            <a href="category.html?type=Islamic%20Decor" class="sidebar-link" style="font-size: 0.9rem;">Islamic Decor</a>
+            <a href="category.html?type=Wedding%20%26%20Events" class="sidebar-link" style="font-size: 0.9rem;">Wedding & Events</a>
+            <a href="category.html?type=Desk%20%26%20Office" class="sidebar-link" style="font-size: 0.9rem;">Desk & Office</a>
+            <a href="category.html?type=Wooden%20Products" class="sidebar-link" style="font-size: 0.9rem;">Wooden Products</a>
+            <a href="category.html?type=Toys" class="sidebar-link" style="font-size: 0.9rem;">Toys</a>
+            <a href="category.html?type=Business%20%26%20Branding" class="sidebar-link" style="font-size: 0.9rem;">Business & Branding</a>
+            <a href="category.html?type=Design%20%26%20Customization" class="sidebar-link" style="font-size: 0.9rem;">Design & Customization</a>
+        </div>
+    </div>
+
+    <!-- DYNAMIC HEADER -->
+    <div style="background: var(--gray); padding: 4rem 1rem 3rem 1rem; text-align: center; margin-bottom: 2.5rem;">
+        <h1 id="catTitle" style="font-family: var(--font-head); letter-spacing: 2px;">Laser Collection</h1>
+        <p style="margin-top: 8px; color: #666; font-size: 1.05rem;">Precision Laser Cut Masterpieces</p>
+
+        <!-- CATEGORY SWITCHER PILLS -->
+        <div style="max-width: 1200px; margin: 2rem auto 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 0 10px;" id="catFilterPills">
+            <a href="shop.html" class="cat-page-pill" style="padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid #ddd; background: #fff; color: #333; text-decoration: none; transition: all 0.25s ease;">Shop All</a>
+            <a href="category.html?type=Name%20%26%20Personalized" class="cat-page-pill" data-cat="Name & Personalized" style="padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid #ddd; background: #fff; color: #333; text-decoration: none; transition: all 0.25s ease;">Name & Personalized</a>
+            <a href="category.html?type=Wall%20Art" class="cat-page-pill" data-cat="Wall Art" style="padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid #ddd; background: #fff; color: #333; text-decoration: none; transition: all 0.25s ease;">Wall Art</a>
+            <a href="category.html?type=Home%20Decor" class="cat-page-pill" data-cat="Home Decor" style="padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid #ddd; background: #fff; color: #333; text-decoration: none; transition: all 0.25s ease;">Home Decor</a>
+            <a href="category.html?type=Keychains" class="cat-page-pill" data-cat="Keychains" style="padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid #ddd; background: #fff; color: #333; text-decoration: none; transition: all 0.25s ease;">Keychains</a>
+            <a href="category.html?type=Gift%20Items" class="cat-page-pill" data-cat="Gift Items" style="padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid #ddd; background: #fff; color: #333; text-decoration: none; transition: all 0.25s ease;">Gift Items</a>
+            <a href="category.html?type=Islamic%20Decor" class="cat-page-pill" data-cat="Islamic Decor" style="padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid #ddd; background: #fff; color: #333; text-decoration: none; transition: all 0.25s ease;">Islamic Decor</a>
+            <a href="category.html?type=Wedding%20%26%20Events" class="cat-page-pill" data-cat="Wedding & Events" style="padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid #ddd; background: #fff; color: #333; text-decoration: none; transition: all 0.25s ease;">Wedding & Events</a>
+            <a href="category.html?type=Desk%20%26%20Office" class="cat-page-pill" data-cat="Desk & Office" style="padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid #ddd; background: #fff; color: #333; text-decoration: none; transition: all 0.25s ease;">Desk & Office</a>
+            <a href="category.html?type=Wooden%20Products" class="cat-page-pill" data-cat="Wooden Products" style="padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid #ddd; background: #fff; color: #333; text-decoration: none; transition: all 0.25s ease;">Wooden Products</a>
+            <a href="category.html?type=Toys" class="cat-page-pill" data-cat="Toys" style="padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid #ddd; background: #fff; color: #333; text-decoration: none; transition: all 0.25s ease;">Toys</a>
+            <a href="category.html?type=Business%20%26%20Branding" class="cat-page-pill" data-cat="Business & Branding" style="padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid #ddd; background: #fff; color: #333; text-decoration: none; transition: all 0.25s ease;">Business & Branding</a>
+            <a href="category.html?type=Design%20%26%20Customization" class="cat-page-pill" data-cat="Design & Customization" style="padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid #ddd; background: #fff; color: #333; text-decoration: none; transition: all 0.25s ease;">Design & Customization</a>
+        </div>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <div class="container section-pad">
+        <div class="product-grid">
+            <!-- Dynamically populated from store database -->
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer style="background: #111; color: #fff; padding: 3.5rem 1.5rem; text-align: center; font-size: 0.9rem; margin-top: 4rem; border-top: 2px solid var(--gold);">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 1.5rem;">
+                <img src="Gift-Wallay.png" alt="Gift Wallay" style="height: 44px; max-height: 44px; width: auto; object-fit: contain; display: block;" onerror="this.style.display='none';">
+                <span style="font-family: var(--font-head); font-size: 1.45rem; font-weight: 700; color: var(--gold); letter-spacing: 2px;">GIFT WALLAY</span>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                <a href="index.html" style="color: #ccc;">Home</a>
+                <a href="shop.html" style="color: #ccc;">Shop Collection</a>
+                <a href="account.html" style="color: #ccc;">My Account</a>
+                <a href="terms.html" style="color: #ccc;">Terms & Conditions</a>
+                <a href="privacy.html" style="color: #ccc;">Privacy Policy</a>
+            </div>
+            <p style="color: #777;">&copy; 2026 Gift Wallay. All rights reserved. Premium Wall Art & Luxury Gifts.</p>
+        </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+</body>
+</html>

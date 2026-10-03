@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Gift Wallay</title>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://script.google.com;">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .error-container {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+        .error-code {
+            font-family: var(--font-head);
+            font-size: clamp(4rem, 12vw, 8rem);
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        .error-title {
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            color: #111;
+            margin-bottom: 0.8rem;
+        }
+        .error-desc {
+            color: #666;
+            max-width: 480px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #000;
+            color: var(--gold);
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1.5px solid var(--gold);
+            transition: all 0.3s ease;
+        }
+        .home-btn:hover {
+            background: var(--gold);
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <nav class="navbar">
+        <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+        <a href="index.html" class="brand" id="brandLogo">
+            <img src="Gift-Wallay.png" alt="Gift Wallay" style="height: 44px; width: auto; object-fit: contain;" onerror="this.style.display='none';">
+            <span style="font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; color: var(--gold); letter-spacing: 2px;">GIFT WALLAY</span>
+        </a>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="cart.html" class="cart-icon">🛒<span class="cart-count">0</span></a>
+        </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="sidebar-menu" id="sidebarMenu">
+        <div style="text-align: right; font-size: 1.5rem; cursor: pointer;" onclick="toggleSidebar()">×</div>
+        <div style="margin-top: 2rem;">
+            <a href="index.html" class="sidebar-link">Home</a>
+            <a href="shop.html" class="sidebar-link">Shop All</a>
+            <a href="cart.html" class="sidebar-link">My Cart</a>
+            <a href="checkout.html" class="sidebar-link">Checkout</a>
+            <a href="favorites.html" class="sidebar-link">Favorites</a>
+            <a href="account.html" class="sidebar-link">My Account</a>
+        </div>
+    </div>
+
+    <!-- ERROR VIEW -->
+    <main class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page or Product Not Found</h1>
+        <p class="error-desc">The page you were looking for doesn't exist, has been moved, or the link has changed. Explore our bespoke laser crafted collections instead.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+            <a href="index.html" class="home-btn">Return Home</a>
+            <a href="shop.html" class="home-btn" style="background: transparent; color: #111; border-color: #333;">Browse Catalog</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Gift Wallay. All Rights Reserved.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

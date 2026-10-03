@@ -1,0 +1,6 @@
+{
+  "name": "Gift Wallay",
+  "description": "A premium e-commerce store specializing in precision laser cut products, acrylic & wood name lamps, 3D multilayer wall art, home decor, customized gifts, and corporate branding.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

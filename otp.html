@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation | Gift Wallay</title>
+    <meta name="description" content="View your Gift Wallay order confirmation and tracking details.">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background: #09090b; color: #fff;">
+
+    <!-- NAVBAR -->
+    <nav class="navbar" style="display: flex; justify-content: space-between; align-items: center; padding: 0 24px; height: 68px; background: #000; border-bottom: 1px solid rgba(212,175,55,0.3); position: relative;">
+        <a href="shop.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 20px; background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.35); color: var(--gold); font-size: 0.88rem; font-weight: 700; text-decoration: none;">
+            <span>← Store</span>
+        </a>
+        <a href="index.html" class="brand" style="position: absolute; left: 50%; transform: translateX(-50%); text-decoration: none; display: flex; align-items: center; gap: 10px;">
+            <img src="Gift-Wallay.png" alt="Gift Wallay" style="height: 42px; max-height: 42px; width: auto; object-fit: contain; display: block;" onerror="this.style.display='none';">
+            <span style="font-family: var(--font-head); font-size: 1.35rem; font-weight: 700; color: var(--gold); letter-spacing: 2px;">GIFT WALLAY</span>
+        </a>
+        <a href="account.html" style="color: var(--gold); text-decoration: none; font-size: 0.85rem; font-weight: 700; padding: 6px 12px; border: 1px solid rgba(212,175,55,0.3); border-radius: 16px;">
+            My Account
+        </a>
+    </nav>
+
+    <!-- MAIN ORDER CONFIRMATION VIEW -->
+    <main class="otp-page-wrapper" style="min-height: calc(100vh - 180px); display: flex; align-items: center; justify-content: center; padding: 40px 16px;">
+        <div class="otp-card" id="otpCard" style="background: linear-gradient(180deg, #18181c 0%, #101014 100%); border: 1px solid rgba(212,175,55,0.3); border-radius: 16px; max-width: 540px; width: 100%; padding: 36px 28px; text-align: center; box-shadow: 0 25px 60px rgba(0,0,0,0.6);">
+            
+            <div style="width: 64px; height: 64px; margin: 0 auto 16px; border-radius: 50%; background: rgba(37,211,102,0.15); border: 2px solid #25d366; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #25d366;">
+                ✓
+            </div>
+
+            <h1 style="font-family: var(--font-head); font-size: 1.7rem; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">Order Confirmed</h1>
+            <p style="font-size: 0.95rem; color: #bbb; line-height: 1.5; margin-bottom: 24px;">
+                Thank you for your order! Your handcrafted gift request has been received and is being prepared with precision.
+            </p>
+
+            <div id="orderStatusBox" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.25); border-radius: 10px; padding: 20px; text-align: left; margin-bottom: 24px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px;">
+                    <span style="font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 1px;">Status</span>
+                    <span style="color: #25d366; font-weight: 700; font-size: 0.85rem; background: rgba(37,211,102,0.1); padding: 3px 10px; border-radius: 12px; border: 1px solid rgba(37,211,102,0.3);">Processing</span>
+                </div>
+                <div style="font-size: 0.9rem; color: #ddd; line-height: 1.6;">
+                    <div>🚚 <strong>Nationwide Delivery:</strong> 3-5 business days across Pakistan</div>
+                    <div style="margin-top: 6px;">📞 <strong>Confirmation:</strong> Our representative will contact you to verify delivery address.</div>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a href="account.html" style="flex: 1; min-width: 160px; padding: 14px 20px; background: var(--gold); color: #000; font-weight: 700; text-decoration: none; border-radius: 8px; text-align: center; font-size: 0.9rem; letter-spacing: 1px;">
+                    View My Orders
+                </a>
+                <a href="shop.html" style="flex: 1; min-width: 160px; padding: 14px 20px; background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.2); font-weight: 700; text-decoration: none; border-radius: 8px; text-align: center; font-size: 0.9rem; letter-spacing: 1px;">
+                    Continue Shopping
+                </a>
+            </div>
+
+            <div style="margin-top: 24px; font-size: 0.82rem; color: #777;">
+                Questions about your order? Email us or contact support directly.
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="background: #000; color: #777; padding: 24px; text-align: center; font-size: 0.85rem; border-top: 1px solid rgba(212,175,55,0.2);">
+        &copy; 2026 Gift Wallay. All rights reserved. Premium Wall Art & Luxury Gifts.
+    </footer>
+
+    <script src="main.js" defer></script>
+</body>
+</html>

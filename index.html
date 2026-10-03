@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Wallay | Premium Gifts</title>
+    <meta name="description" content="A premium e-commerce store specializing in precision laser cut products, acrylic & wood name lamps, 3D multilayer wall art, home decor, customized gifts, and corporate branding.">
+    <meta property="og:title" content="Gift Wallay | Premium Gifts">
+    <meta property="og:description" content="A premium e-commerce store specializing in precision laser cut products, acrylic & wood name lamps, 3D multilayer wall art, home decor, customized gifts, and corporate branding.">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://script.google.com;">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* HERO IMAGE CONFIGURATION */
+        .hero-section {
+            height: 90vh;
+            background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=1600&auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            background-color: #111; /* Fallback color */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 5vw, 6rem);
+            margin-bottom: 1rem;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: fadeUp 1s ease 0.5s forwards;
+            opacity: 0; transform: translateY(20px);
+        }
+
+        .hero-btn {
+            padding: 15px 40px;
+            background: white; color: black;
+            border: none;
+            font-family: 'Lato', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+            animation: fadeUp 1s ease 0.8s forwards;
+            opacity: 0; transform: translateY(20px);
+        }
+        .hero-btn:hover { background: var(--gold); color: white; }
+
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+        <a href="index.html" class="brand" id="brandLogo" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+            <img src="Gift-Wallay.png" alt="Gift Wallay" style="height: 48px; max-height: 48px; width: auto; object-fit: contain; display: block;" onerror="this.style.display='none';">
+            <span style="font-family: var(--font-head); font-size: 1.35rem; font-weight: 700; color: var(--gold); letter-spacing: 2px;">GIFT WALLAY</span>
+        </a>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <button class="search-trigger-btn" id="navSearchBtn" onclick="openSearchModal()" title="Search Products" style="background: none; border: none; font-size: 1.25rem; cursor: pointer; color: #111; display: flex; align-items: center; justify-content: center; padding: 4px;">🔍</button>
+            <a href="cart.html" class="cart-icon">🛒<span class="cart-count">0</span></a>
+        </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="sidebar-menu" id="sidebarMenu">
+        <div style="text-align: right; font-size: 1.5rem; cursor: pointer;" onclick="toggleSidebar()">×</div>
+        <div style="margin-top: 2rem;">
+            <a href="index.html" class="sidebar-link">Home</a>
+            <a href="shop.html" class="sidebar-link">Shop All</a>
+            <a href="account.html" class="sidebar-link">My Account</a>
+            <a href="favorites.html" class="sidebar-link">My Favorites</a>
+            <a href="terms.html" class="sidebar-link">Terms & Conditions</a>
+            <a href="privacy.html" class="sidebar-link">Privacy Policy</a>
+            <hr style="margin: 1rem 0; border: 0; border-top: 1px solid #eee;">
+            <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); font-weight: 700; margin-bottom: 0.8rem;">Collections</div>
+            <a href="category.html?type=Name%20%26%20Personalized" class="sidebar-link" style="font-size: 0.9rem;">Name & Personalized</a>
+            <a href="category.html?type=Wall%20Art" class="sidebar-link" style="font-size: 0.9rem;">Wall Art</a>
+            <a href="category.html?type=Home%20Decor" class="sidebar-link" style="font-size: 0.9rem;">Home Decor</a>
+            <a href="category.html?type=Keychains" class="sidebar-link" style="font-size: 0.9rem;">Keychains</a>
+            <a href="category.html?type=Gift%20Items" class="sidebar-link" style="font-size: 0.9rem;">Gift Items</a>
+            <a href="category.html?type=Islamic%20Decor" class="sidebar-link" style="font-size: 0.9rem;">Islamic Decor</a>
+            <a href="category.html?type=Wedding%20%26%20Events" class="sidebar-link" style="font-size: 0.9rem;">Wedding & Events</a>
+            <a href="category.html?type=Desk%20%26%20Office" class="sidebar-link" style="font-size: 0.9rem;">Desk & Office</a>
+            <a href="category.html?type=Wooden%20Products" class="sidebar-link" style="font-size: 0.9rem;">Wooden Products</a>
+            <a href="category.html?type=Toys" class="sidebar-link" style="font-size: 0.9rem;">Toys</a>
+            <a href="category.html?type=Business%20%26%20Branding" class="sidebar-link" style="font-size: 0.9rem;">Business & Branding</a>
+            <a href="category.html?type=Design%20%26%20Customization" class="sidebar-link" style="font-size: 0.9rem;">Design & Customization</a>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <h1 class="hero-title">The Art of Giving</h1>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem; font-weight: 300; letter-spacing: 1px;">PREMIUM LASER CRAFT • TIMELESS • BESPOKE</p>
+        <a href="shop.html"><button class="hero-btn">Explore Collection</button></a>
+    </section>
+
+    <!-- LUXURY INFINITE MARQUEE TICKER -->
+    <div class="luxury-marquee">
+        <div class="luxury-marquee-track">
+            <span>✨ 100% Precision Laser Crafted</span>
+            <span>👑 Bespoke Name & Custom Art</span>
+            <span>⚡ Express Nationwide Delivery</span>
+            <span>💎 Premium Authentic Wood & Acrylic</span>
+            <span>🎁 Luxury Gift Packaging</span>
+            <span>🔒 100% Authentic Handcrafted Quality</span>
+            <span>✨ 100% Precision Laser Crafted</span>
+            <span>👑 Bespoke Name & Custom Art</span>
+            <span>⚡ Express Nationwide Delivery</span>
+            <span>💎 Premium Authentic Wood & Acrylic</span>
+            <span>🎁 Luxury Gift Packaging</span>
+            <span>🔒 100% Authentic Handcrafted Quality</span>
+        </div>
+    </div>
+
+    <!-- ENDLESS CATEGORIES (12 Laser Cut Categories) -->
+    <section style="padding: 4rem 0; overflow: hidden;">
+        <h2 class="text-center" style="margin-bottom: 3rem;">Our Collections</h2>
+        
+        <div class="scroll-wrapper" style="user-select: none;">
+            <!-- We duplicate the list to create a seamless loop -->
+            <div class="scroll-track">
+                <!-- SET 1 -->
+                <a href="category.html?type=Name%20%26%20Personalized" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&auto=format&fit=crop&q=80');"><span>Name & Personalized</span></a>
+                <a href="category.html?type=Wall%20Art" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600&auto=format&fit=crop&q=80');"><span>Wall Art</span></a>
+                <a href="category.html?type=Home%20Decor" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&auto=format&fit=crop&q=80');"><span>Home Decor</span></a>
+                <a href="category.html?type=Keychains" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=600&auto=format&fit=crop&q=80');"><span>Keychains</span></a>
+                <a href="category.html?type=Gift%20Items" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=600&auto=format&fit=crop&q=80');"><span>Gift Items</span></a>
+                <a href="category.html?type=Islamic%20Decor" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1564769625905-50e93615e769?w=600&auto=format&fit=crop&q=80');"><span>Islamic Decor</span></a>
+                <a href="category.html?type=Wedding%20%26%20Events" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=600&auto=format&fit=crop&q=80');"><span>Wedding & Events</span></a>
+                <a href="category.html?type=Desk%20%26%20Office" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1585336261026-6757c5b3063f?w=600&auto=format&fit=crop&q=80');"><span>Desk & Office</span></a>
+                <a href="category.html?type=Wooden%20Products" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&auto=format&fit=crop&q=80');"><span>Wooden Products</span></a>
+                <a href="category.html?type=Toys" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=600&auto=format&fit=crop&q=80');"><span>Toys</span></a>
+                <a href="category.html?type=Business%20%26%20Branding" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&auto=format&fit=crop&q=80');"><span>Business & Branding</span></a>
+                <a href="category.html?type=Design%20%26%20Customization" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&auto=format&fit=crop&q=80');"><span>Design & Customization</span></a>
+
+                <!-- SET 2 (Duplicate for Loop) -->
+                <a href="category.html?type=Name%20%26%20Personalized" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&auto=format&fit=crop&q=80');"><span>Name & Personalized</span></a>
+                <a href="category.html?type=Wall%20Art" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600&auto=format&fit=crop&q=80');"><span>Wall Art</span></a>
+                <a href="category.html?type=Home%20Decor" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&auto=format&fit=crop&q=80');"><span>Home Decor</span></a>
+                <a href="category.html?type=Keychains" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=600&auto=format&fit=crop&q=80');"><span>Keychains</span></a>
+                <a href="category.html?type=Gift%20Items" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=600&auto=format&fit=crop&q=80');"><span>Gift Items</span></a>
+                <a href="category.html?type=Islamic%20Decor" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1564769625905-50e93615e769?w=600&auto=format&fit=crop&q=80');"><span>Islamic Decor</span></a>
+                <a href="category.html?type=Wedding%20%26%20Events" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=600&auto=format&fit=crop&q=80');"><span>Wedding & Events</span></a>
+                <a href="category.html?type=Desk%20%26%20Office" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1585336261026-6757c5b3063f?w=600&auto=format&fit=crop&q=80');"><span>Desk & Office</span></a>
+                <a href="category.html?type=Wooden%20Products" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&auto=format&fit=crop&q=80');"><span>Wooden Products</span></a>
+                <a href="category.html?type=Toys" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=600&auto=format&fit=crop&q=80');"><span>Toys</span></a>
+                <a href="category.html?type=Business%20%26%20Branding" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&auto=format&fit=crop&q=80');"><span>Business & Branding</span></a>
+                <a href="category.html?type=Design%20%26%20Customization" class="cat-item" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&auto=format&fit=crop&q=80');"><span>Design & Customization</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECENTLY ADDED -->
+    <section class="container section-pad">
+        <h2 style="margin-bottom: 2rem;">Recently Added</h2>
+        <div class="product-grid">
+            <!-- Dynamically populated from store database -->
+        </div>
+    </section>
+
+
+
+    <!-- FOOTER -->
+    <footer style="background: #111; color: #fff; padding: 3.5rem 1.5rem; text-align: center; font-size: 0.9rem; margin-top: 4rem; border-top: 2px solid var(--gold);">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 1.5rem;">
+                <img src="Gift-Wallay.png" alt="Gift Wallay" style="height: 44px; max-height: 44px; width: auto; object-fit: contain; display: block;" onerror="this.style.display='none';">
+                <span style="font-family: var(--font-head); font-size: 1.45rem; font-weight: 700; color: var(--gold); letter-spacing: 2px;">GIFT WALLAY</span>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                <a href="index.html" style="color: #ccc;">Home</a>
+                <a href="shop.html" style="color: #ccc;">Shop Collection</a>
+                <a href="account.html" style="color: #ccc;">My Account</a>
+                <a href="terms.html" style="color: #ccc;">Terms & Conditions</a>
+                <a href="privacy.html" style="color: #ccc;">Privacy Policy</a>
+            </div>
+            <p style="color: #777; margin-top: 10px;">&copy; 2026 Gift Wallay. All rights reserved. Premium Wall Art & Luxury Gifts.<br><a href="https://gift-wallay.github.io/website/" style="color: var(--gold); text-decoration: none; font-size: 0.8rem;">gift-wallay.github.io/website</a></p>
+        </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+</body>
+</html>

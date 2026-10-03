@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorites | Gift Wallay</title>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://script.google.com;">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+        <a href="index.html" class="brand" id="brandLogo" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+            <img src="Gift-Wallay.png" alt="Gift Wallay" style="height: 48px; max-height: 48px; width: auto; object-fit: contain; display: block;" onerror="this.style.display='none';">
+            <span style="font-family: var(--font-head); font-size: 1.35rem; font-weight: 700; color: var(--gold); letter-spacing: 2px;">GIFT WALLAY</span>
+        </a>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <button class="search-trigger-btn" id="navSearchBtn" onclick="openSearchModal()" title="Search Products" style="background: none; border: none; font-size: 1.25rem; cursor: pointer; color: #111; display: flex; align-items: center; justify-content: center; padding: 4px;">🔍</button>
+            <a href="cart.html" class="cart-icon">🛒<span class="cart-count">0</span></a>
+        </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="sidebar-menu" id="sidebarMenu">
+        <div style="text-align: right; font-size: 1.5rem; cursor: pointer;" onclick="toggleSidebar()">×</div>
+        <div style="margin-top: 2rem;">
+            <a href="index.html" class="sidebar-link">Home</a>
+            <a href="shop.html" class="sidebar-link">Shop All</a>
+            <a href="favorites.html" class="sidebar-link" style="color: var(--gold);">My Favorites</a>
+            <a href="account.html" class="sidebar-link">My Account</a>
+            <a href="terms.html" class="sidebar-link">Terms & Conditions</a>
+            <a href="privacy.html" class="sidebar-link">Privacy Policy</a>
+        </div>
+    </div>
+
+    <!-- HERO HEADER -->
+    <div style="text-align: center; padding: 3.5rem 1rem; background: var(--gray); border-bottom: 1px solid rgba(0,0,0,0.05);">
+        <h1 style="font-family: var(--font-head); font-size: 2.2rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; color: #111;">My Saved Favorites</h1>
+        <p style="color: #666; font-size: 0.95rem; letter-spacing: 1px;">Your personal wishlist of curated luxury gifts and custom art</p>
+    </div>
+
+    <!-- MAIN FAVORITES CONTENT CONTAINER -->
+    <div class="container section-pad">
+        <div id="favoritesContainer">
+            <div style="text-align: center; padding: 4rem 0;">
+                <div style="display: inline-block; width: 40px; height: 40px; border: 3px solid rgba(0,0,0,0.1); border-top-color: var(--gold); border-radius: 50%; animation: spin 1s infinite linear; margin-bottom: 1rem;"></div>
+                <p style="color: #666; font-size: 0.95rem; letter-spacing: 0.5px;">Loading your saved favorites...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer style="background: #111; color: #fff; padding: 3.5rem 1.5rem; text-align: center; font-size: 0.9rem; margin-top: 4rem; border-top: 2px solid var(--gold);">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 1.5rem;">
+                <img src="Gift-Wallay.png" alt="Gift Wallay" style="height: 44px; max-height: 44px; width: auto; object-fit: contain; display: block;" onerror="this.style.display='none';">
+                <span style="font-family: var(--font-head); font-size: 1.45rem; font-weight: 700; color: var(--gold); letter-spacing: 2px;">GIFT WALLAY</span>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                <a href="index.html" style="color: #ccc;">Home</a>
+                <a href="shop.html" style="color: #ccc;">Shop Collection</a>
+                <a href="favorites.html" style="color: var(--gold);">My Favorites</a>
+                <a href="account.html" style="color: #ccc;">My Account</a>
+                <a href="terms.html" style="color: #ccc;">Terms & Conditions</a>
+                <a href="privacy.html" style="color: #ccc;">Privacy Policy</a>
+            </div>
+            <p style="color: #777;">&copy; 2026 Gift Wallay. All rights reserved. Premium Wall Art & Luxury Gifts.</p>
+        </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+</body>
+</html>
